@@ -1,0 +1,288 @@
+<div class="card border-primary mb-3 mt-3">
+    <div class="card-header bg-primary mb-2 text-white"><strong>Formulario Censal</strong>
+    </div>
+
+    <div class="card-body table-responsive-md">
+        <form (ngSubmit) = "createEncuesta()">
+            <!-- <div class="form-row">
+                <div class="form-group col-md-2">
+                  <label for="inputEmail4">Codigo Censal</label>
+                  <input type="text" class="form-control" id="inputEmail4">
+                </div>           
+            </div> -->
+
+            <div class="card border-primary mb-3">
+              <div class="card-header bg-primary mb-2 text-white"><strong>Jefe de vivienda</strong></div>
+              <div class="card-body table-responsive-md">
+                <div class="form-row">
+                  <div class="form-group col-md-4">
+                    <label for="dni">DNI</label>
+                    <input type="text" class="form-control" [(ngModel)]="ciudadano.id" name="dni">
+                  </div>
+                  <div class="form-group col-md-4">
+                    <label for="apellido">Apellido</label>
+                    <input type="text" class="form-control" [(ngModel)]="ciudadano.nombre" name="apellido">
+                  </div>
+                  <div class="form-group col-md-4">
+                    <label for="nombre">Nombre</label>
+                    <input type="text" class="form-control" [(ngModel)]="ciudadano.apellido" name="nombre">
+                  </div>
+                </div>
+                <div class="form-row">
+                  <div class="form-group col-md-3">
+                    <label for="ocupacion">Ocupación</label>
+                    <select id="inputState" class="form-control"  [(ngModel)]="ciudadano.ocupacion" name="ocupacion">
+                      <option *ngFor="let ocupacion of ocupaciones" [ngValue] = "ocupacion" >
+                        {{ocupacion.descripcion}}
+                      </option>
+                    </select>
+                  </div>
+                  <div class="form-group col-md-3">
+                    <label for="genero">Sexo</label>
+                    <select id="inputState" class="form-control" [(ngModel)]="ciudadano.genero" name="genero">
+                      <option *ngFor="let genero of generos" [ngValue] = "genero">
+                        {{genero.descripcion}}
+                      </option>
+                    </select>
+                  </div>
+                  <div class="form-group col-md-3">
+                    <label for="inputEmail4">Parentesco</label>
+                    <select id="parentesco" class="form-control" [(ngModel)]="ciudadano.parentescoFamilia" name="parentesco">
+                      <option *ngFor="let parentesco of parentescos" [ngValue] = "parentesco">
+                        {{parentesco.descripcion}}
+                      </option>
+                    </select>
+                  </div>
+                  <div class="form-group col-md-3">
+                    <label for="edad">Edad</label>
+                    <input type="text" class="form-control" [(ngModel)]="ciudadano.edad" name="edad">
+                  </div>
+                </div>
+               <!--  <div class="text-right">
+                  <button type="button" class="btn btn-primary" role="button"><i class="far fa-save"></i>  Grabar</button>
+                </div> -->
+              </div>
+            </div>
+
+            <div class="card border-primary mb-3">
+              <div class="card-header bg-primary mb-2 text-white"><strong>Ubicación Geografica</strong></div>
+              <div class="card-body table-responsive-md">
+                <div class="form-row">
+                  <div class="form-group col-md-4">
+                    <label for="departamento">Departamento</label>
+                    <select id="inputState" class="form-control"  [(ngModel)]="ciudadano.direccion"   name="departamento">
+                      <option *ngFor="let departamento of departamentos" [ngValue] = "departamento">                  
+                      {{departamento.descripcion}}
+                    </option>
+                    </select>
+                  </div>
+                  <div class="form-group col-md-4">
+                    <label for="inputPassword4">Provicia</label>
+                    <select id="inputState" class="form-control">
+                      <option selected>Seleccionar</option>
+                      <option *ngFor="let provincia of provincias" value="provincia.idProvincia" >
+                        {{provincia.descripcion}}
+                      </option>
+                    </select>
+                  </div>
+                  <div class="form-group col-md-4">
+                    <label for="inputPassword4">Distrito</label>
+                    <select id="inputState" class="form-control">
+                      <option selected>Seleccionar</option>
+                      <option *ngFor="let distrito of distritos" value="distrito.idDistrito" >
+                        {{distrito.descripcion}}
+                      </option>
+                    </select>
+                  </div>
+                </div>
+            
+                <div class="form-row">
+                  <div class="form-group col-md-2">
+                    <label for="inputEmail4">Tipo vía</label>
+                    <select id="inputState" class="form-control">
+                      <option selected>Seleccionar</option>
+                      <option *ngFor="let tipovia of tipovias" value="tipovia.idTipovia">
+                        {{tipovia.descripcion}}
+                      </option>
+                    </select>
+                  </div>
+                  <div class="form-group col-md-6">
+                    <label for="inputEmail4">Nombre de vía</label>
+                    <input type="text" class="form-control" id="inputEmail4">
+                  </div>
+            
+                  <div class="form-group col-md-1">
+                    <label for="inputEmail4">Piso</label>
+                    <input type="text" class="form-control" id="inputEmail4">
+                  </div>
+                  <div class="form-group col-md-1">
+                    <label for="inputEmail4">Manzana</label>
+                    <input type="text" class="form-control" id="inputEmail4">
+                  </div>
+                  <div class="form-group col-md-1">
+                    <label for="inputEmail4">Lote</label>
+                    <input type="text" class="form-control" id="inputEmail4">
+                  </div>
+                  <div class="form-group col-md-1">
+                    <label for="inputEmail4">Kilometro</label>
+                    <input type="text" class="form-control" id="inputEmail4">
+                  </div> 
+                </div>
+                <!-- <div class="text-right">
+                  <button type="button" class="btn btn-primary"><i class="far fa-save"></i> Grabar</button>
+                </div> -->
+              </div>
+            </div>
+
+          <div class="card border-primary mb-3">
+            <div class="card-header bg-primary mb-2 text-white"><strong>Miembros de la vivienda</strong></div>
+            <div class="card-body table-responsive-md">
+              <div class="form-row">
+                <div class="form-group col-md-4">
+                  <label for="inputEmail4">DNI</label>
+                  <input type="text" class="form-control" id="inputEmail4">
+                </div>
+                <div class="form-group col-md-4">
+                  <label for="inputPassword4">Apellido</label>
+                  <input type="text" class="form-control" id="inputPassword4">
+                </div>
+                <div class="form-group col-md-4">
+                  <label for="inputPassword4">Nombre</label>
+                  <input type="text" class="form-control" id="inputPassword4">
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group col-md-3">
+                  <label for="inputEmail4">Ocupación</label>
+                  <select id="inputState" class="form-control">
+                    <option selected>Seleccionar</option>
+                    <option>Desempleado</option>
+                    <option>Estudiante</option>
+                  </select>
+                </div>
+                <div class="form-group col-md-3">
+                  <label for="inputEmail4">Sexo</label>
+                  <select id="inputState" class="form-control">
+                    <option selected>Seleccionar</option>
+                    <option>Masculino</option>
+                    <option>Femenino</option>
+                  </select>
+                </div>
+                <div class="form-group col-md-3">
+                  <label for="inputEmail4">Parentesco</label>
+                  <select id="inputState" class="form-control">
+                    <option selected>Seleccionar</option>
+                    <option>Padre</option>
+                    <option>Madre</option>
+                  </select>
+                </div>
+                <div class="form-group col-md-3">
+                  <label for="inputPassword4">Edad</label>
+                  <input type="text" class="form-control" id="inputPassword4">
+                </div>
+              </div>
+              <div class="text-right">
+                <button type="button" class="btn btn-primary"><i class="fas fa-plus"></i>  Agregar</button>
+              </div>
+              <table class="table table-bordered table-striped table-responsive-md" >
+                <thead>
+                    <tr>
+                        <th>DNI</th>
+                        <th>Nombre</th>
+                        <th>Apellido</th>
+                        <th>Email</th>
+                        <th>Fecha</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                      <td>01</td>
+                      <td>Diego</td>
+                      <td>Tello</td>
+                      <td>diego@gmail.com</td>
+                      <td>12/12/2020</td>
+                      <td>
+                        <button type="button" name="Eliminar" class="btn btn-danger btn-sm btn-block"><i class="fas fa-trash-alt"></i></button>
+                      </td>
+                  </tr>
+                </tbody>
+            </table>
+            <div class="text-right">
+              <button type="button" class="btn btn-primary"><i class="far fa-save"></i>  Grabar</button>
+            </div>
+            </div>
+          </div>
+
+          <div class="card border-primary mb-3">
+            <div class="card-header bg-primary mb-2 text-white"><strong>Caracteristicas de vivienda</strong></div>
+            <div class="card-body table-responsive-md">
+              <h4>TIPO DE VIVIENDA:</h4>
+              <div class="form-row">
+                <div class="form-group col-md-4">
+                  <label for="inputEmail4"> VIVIENDA PARTICULAR</label>
+                  <select id="inputState" class="form-control">
+                    <option selected>Seleccionar</option>
+                    <option>Casa independiente</option>
+                    <option>Departamento en edificio</option>
+                  </select>
+                </div>
+                <div class="form-group col-md-4">
+                  <label for="inputPassword4">VIVIENDA COLECTIVA</label>
+                  <select id="inputState" class="form-control">
+                    <option selected>Seleccionar</option>
+                    <option>Hotel, hostal, hospedaje, casa
+                      pensión</option>
+                    <option>Establecimiento de salud</option>
+                  </select>
+                </div>
+                <div class="form-group col-md-4">
+                  <label for="inputPassword4">OTRO TIPO</label>
+                  <select id="inputState" class="form-control">
+                    <option selected>Seleccionar</option>
+                    <option>En la calle (personas sin
+                      vivienda)</option>
+                    <option>Garita, puerto, aeropuerto
+                      o similares</option>
+                  </select>
+                </div>
+              </div>
+              <h4>TIPO DE CONSTRUCCIÓN DE VIVIENDA:</h4>
+              <div class="form-row">
+                <div class="form-group col-md-4">
+                  <label for="inputEmail4">MATERIAL DE CONSTRUCCIÓN PREDOMINANTE EN LAS PAREDES EXTERIORES ES DE:</label>
+                  <select id="inputState" class="form-control">
+                    <option selected>Seleccionar</option>
+                    <option>Ladrillo o bloque de cemento</option>
+                    <option>Piedra o sillar con cal o cemento</option>
+                  </select>
+                </div>
+                <div class="form-group col-md-4">
+                  <label for="inputPassword4">MATERIAL DE CONSTRUCCIÓN PREDOMINANTE EN LOS TECHOS ES DE:</label>
+                  <select id="inputState" class="form-control">
+                    <option selected>Seleccionar</option>
+                    <option>Concreto armado</option>
+                    <option>Madera</option>
+                  </select>
+                </div>
+                <div class="form-group col-md-4">
+                  <label for="inputPassword4">MATERIAL DE CONSTRUCCIÓN PREDOMINANTE EN LOS PISOS ES DE:</label>
+                  <select id="inputState" class="form-control">
+                    <option selected>Seleccionar</option>
+                    <option>Parquet o madera pulida</option>
+                    <option>Láminas asfálticas, vinílicos osimilares</option>
+                  </select>
+                </div>
+              </div>
+              <div class="text-right">
+                <button type="button" class="btn btn-primary"><i class="far fa-save"></i>  Grabar</button>
+              </div>
+            </div>
+          </div>
+          <div class="text-center">
+            <button type="submit" class="btn btn-primary">Terminar Encuesta</button>
+          </div>
+          </form>
+    </div>
+  </div>
+

@@ -1,0 +1,36 @@
+<div class="card border-primary mb-3 mt-2" >
+    <div class="card-header bg-primary text-white"><strong>Ciudadanos</strong></div>
+    <div class="card-body table-responsive-md">
+      <div class="my-2 text-left">
+      </div>
+    
+      <table class="table table-bordered table-striped table-responsive-md" >
+          <thead>
+              <tr>
+                  <th>DNI</th>
+                  <th>Nombre</th>
+                  <th>Apellido</th>
+                  <th>Edad</th>
+                  <th>Ocupacion</th>
+                  <th>Genero</th>
+                  <th>Parentesco</th>
+                  <th></th>
+              </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let ciudadano of ciudadanos">
+                <td>{{ciudadano.id}}</td>
+                <td>{{ciudadano.nombre}}</td>
+                <td>{{ciudadano.apellido}}</td>
+                <td>{{ciudadano.edad}}</td>
+                <td>{{ciudadano.ocupacion.descripcion}}</td>
+                <td>{{ciudadano.genero.descripcion}}</td>
+                <td>{{ciudadano.parentescoFamilia.descripcion}}</td>
+                <td>
+                  <button type="button" name="Editar" class="btn btn-primary btn-sm btn-block"><i class="fas fa-pencil-alt"></i></button>
+                </td>
+            </tr>
+          </tbody>
+      </table>
+    </div>
+  </div>
